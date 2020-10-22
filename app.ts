@@ -22,6 +22,7 @@ async function getJSON(url: string) {
 
 function checkImage(url : string) {
     if ((url.substring(url.length - 3) != "png") && (url.substring(url.length-3, url.length) != "jpg")) {
+        console.log("Not an image: " + url);
         return false;
     }
     return true;
@@ -30,8 +31,10 @@ function checkImage(url : string) {
 function checkNSFW(over_18: boolean) {
     if (over_18) {
         if (!allowNSFW) {
+            console.log("NSFW is not allowed!")
             return false;
         }
+        return true;
     }
     return true;
 }
