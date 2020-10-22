@@ -37,7 +37,7 @@ function checkNSFW(over_18: boolean) {
 }
 
 function replaceFilename(filename: string) {
-    let safed = filename.replace(/[/\\?%*:|"<>]/g,"")
+    let safed = filename.replace(/[/\\?%*:|"<>&;]/g,"")
     return safed
 }
 

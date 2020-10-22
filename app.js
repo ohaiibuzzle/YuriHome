@@ -76,7 +76,7 @@ function checkNSFW(over_18) {
     return true;
 }
 function replaceFilename(filename) {
-    var safed = filename.replace(/[/\\?%*:|"<>]/g, "");
+    var safed = filename.replace(/[/\\?%*:|"<>&;]/g, "");
     return safed;
 }
 function getImages() {
