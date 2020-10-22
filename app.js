@@ -85,7 +85,7 @@ function getImages() {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    url = "https://www.reddit.com/r/" + subreddit + "/new.json?limit=" + limit;
+                    url = "https://www.reddit.com/r/" + subreddit + ".json?limit=" + limit;
                     return [4 /*yield*/, getJSON(url)];
                 case 1:
                     postList = _a.sent();

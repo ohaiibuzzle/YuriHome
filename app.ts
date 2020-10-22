@@ -42,7 +42,7 @@ function replaceFilename(filename: string) {
 }
 
 async function getImages() {
-    let url = "https://www.reddit.com/r/" + subreddit + "/new.json?limit=" + limit
+    let url = "https://www.reddit.com/r/" + subreddit + ".json?limit=" + limit
     let postList = await getJSON(url)
 
     for (let i = 0; i < postList.length; i++){
