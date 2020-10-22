@@ -18,6 +18,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "ts-node app.ts",
     "test": "echo \"No test specified\""
   },
   "author": "",
