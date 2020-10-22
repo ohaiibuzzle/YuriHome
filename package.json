@@ -1,8 +1,12 @@
 {
-  "name": "playground",
+  "name": "yurihomr",
   "version": "1.0.0",
-  "description": "Buzzle's Playground ",
+  "description": "Buzzle's Yuri Fetcher",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ohaiibuzzle/YuriHome.git"
+  },
   "dependencies": {
     "@types/node": "^14.14.2",
     "axios": "^0.20.0",
