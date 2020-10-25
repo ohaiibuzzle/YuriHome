@@ -1,5 +1,5 @@
 {
-  "name": "yurihomr",
+  "name": "yurihome",
   "version": "1.0.0",
   "description": "Buzzle's Yuri Fetcher",
   "main": "app.js",
@@ -18,7 +18,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"No test specified\""
+    "test": "echo \"No test specified\"",
+    "build": "tsc app.ts",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC"

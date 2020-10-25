@@ -1,19 +1,18 @@
 import { link } from "fs/promises"
 
-let axios = require('axios')
-let fs = require('fs')
-let https = require('https')
-let process = require('process')
-let cronJob = require("cron").CronJob;
-let express = require('express')
-let app = express();
+const axios = require('axios')
+const fs = require('fs')
+const process = require('process')
+const cronJob = require("cron").CronJob;
+const express = require('express')
+const app = express();
 
-let port = process.env.PORT || 3000
+const port = process.env.PORT || 3000
 
-let subreddit = "WholesomeYuri"
-let limit = 100
-let allowNSFW = false
-let downloadDir = "./Yuris"
+const subreddit = "WholesomeYuri"
+const limit = 100
+const allowNSFW = false
+const downloadDir = "./Yuris"
 
 async function getJSON(url: string) {
     let req = await axios.get(url)
@@ -59,15 +58,20 @@ async function getImages() {
             console.log("File already exists: " + filename + " (" + postData.url + ")")
         } else {
         try {
-            console.log("Downloading file: " + filename + " (" + postData.url + ")")    
-            const file = fs.createWriteStream(filename)
-            const request = https.get(postData.url, function(response) {
-                    response.pipe(file)
-            })} catch (err) {
+            console.log("Trying to download: " + filename + " (" + postData.url + ")")
+            await axios({
+                method: "GET",
+                url: postData.url,
+                responseType: "stream"
+            }).then(function (response) {
+                response.data.pipe(fs.createWriteStream(filename))
+            })}            
+            catch (err) {
                 console.log(err)
             }
         }
     }
+    console.log("Done!")
 }
 async function init() {
     if (!fs.existsSync(downloadDir)) {
@@ -78,9 +82,9 @@ async function init() {
 }
 
 async function start() {
-    await init()
+    init()
     new cronJob("*/5 * * * *", async function() {
-        await getImages()
+        getImages()
     }, null, true);
     var Gallery = require("express-photo-gallery")
     var options = {
