@@ -18,9 +18,14 @@
   },
   "devDependencies": {},
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"No test specified\"",
     "build": "tsc app.ts",
     "start": "node app.js"
+=======
+    "start": "ts-node app.ts",
+    "test": "echo \"No test specified\""
+>>>>>>> 049acc9094fa452da679a5752b5d13ceb7f0f3a0
   },
   "author": "",
   "license": "ISC"
